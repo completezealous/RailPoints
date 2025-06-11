@@ -1,0 +1,65 @@
+# This file is covered by the LICENSE file in the root of this project.
+labels: 
+  0 : "terrain"
+  1 : "rail"
+  2 : "people"
+  3 : "vegetation"
+  4 : "artifact"
+color_map: # bgr
+  0 : [0, 0, 0]
+  1 : [245, 230, 100]
+  2 : [0, 0, 255]
+  3 : [0, 255, 0]
+  4 : [255, 125 ,230]
+content: # as a ratio with the total number of points
+  0: 0.018889854628292943
+  1: 0.0002937197336781505
+  2: 0.040818519255974316
+  3: 0.00016609538710764618
+  4: 0.00879693665067774
+# classes that are indistinguishable from single scan or inconsistent in
+# ground truth are mapped to their closest equivalent
+learning_map:
+  0 : 0
+  1 : 1     # "outlier" mapped to "unlabeled" --------------------------mapped
+  2 : 2     # "car"
+  3 : 3    # "bicycle"
+  4 : 4     # "bus" mapped to "other-vehicle" --------------------------mapped
+  30: 0    # "unlabeled"
+learning_map_inv: # inverse of previous map
+  0: 0      # "unlabeled", and others ignored
+  1: 1     # "car"
+  2: 2     # "bicycle"
+  3: 3    # "motorcycle"
+  4: 4     # "truck"
+     # "unlabeled"
+learning_ignore: # Ignore classes
+  0: False      # "unlabeled", and others ignored
+  1: False     # "car"
+  2: False     # "bicycle"
+  3: False     # "motorcycle"
+  4: False     # "truck"
+  #5: True     # "unlabeled"
+thing_class: # thing class in panoptic segmentation
+  0: True      # "unlabeled", and others ignored
+  1: True     # "car"
+  2: True     # "bicycle"
+  3: True     # "motorcycle"
+  4: True     # "truck"
+class_weight: [ 2.968, 3.1728, 36.3547, 5.7561, 20.3772]
+split: # sequence numbers
+  train:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 10
+  valid:
+    - 10
+  test:
+    - 9
+
